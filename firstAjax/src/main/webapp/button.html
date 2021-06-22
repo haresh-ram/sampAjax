@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>button</title>
+<script>
+
+	function fun(){
+		var xtp= new XMLHttpRequest();
+		xtp.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				document.getElementById("har").innerHTML=this.responseText;
+			}
+		};
+		
+		xtp.open("POST","aserv?name="+document.getElementById("name").value+"&roll="+document.getElementById("roll").value);
+		xtp.send();
+	}
+
+</script>
+</head>
+<body>
+
+
+
+	NAME: <input id="name" type="text" name="name"><br><br>
+	ROLL NO: <input id="roll" type="text" name="roll"><br><br>
+	<input type="submit" value="submit" onclick="fun()">
+	
+
+
+
+<p id="har" style="margin:50px">valid user or not??????</p>
+
+</body>
+</html>
